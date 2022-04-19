@@ -1,0 +1,166 @@
+@import 'mixins/media';
+
+.footer {
+    overflow-x: hidden;
+    color: #fff;
+    @include responsive {
+        padding: 2rem 1.5rem 1rem 1.5rem;
+    }
+    @include responsive($tablet) {
+        padding: 5rem 4rem 0rem 4rem;
+    }
+
+    .footer--content {
+        border-bottom: 2px solid #fff;
+        padding-bottom: 5rem;
+        @include responsive {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        @include responsive($tablet) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+        }
+    }
+
+    .footer--brand {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include responsive {
+            align-items: center;
+        }
+        @include responsive($tablet) {
+            align-items: flex-start;
+        }
+    }
+
+    .footer--brand-header {
+        font-weight: 700;
+        font-size: 1.5rem;
+        @include responsive {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        @include responsive($tablet) {
+            font-size: 1.5rem;
+            padding-top: 2.5rem;
+            padding-bottom: 2rem;
+        }
+    }
+    .footer--brand-socials {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+
+        @include responsive {
+            align-items: center;
+        }
+        @include responsive($tablet) {
+            align-items: flex-start;
+        }
+        a {
+            // text-decoration: none;
+            // color: inherit;
+            //padding: 0.6rem;
+            //font-size: 0.7rem;
+            //transition: all 300ms ease;
+
+
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+            img {
+                @include responsive {
+                    width: 2.5rem;
+                }
+                @include responsive($tablet) {
+                    width: 3rem;
+                }
+                filter: invert(100%) !important;
+
+                &:hover {
+                    filter: invert(0.34) hue-rotate(161deg) brightness(1.11) sepia(1) saturate(5.1) !important;
+                    //filter: url(/twitter-round-line-alt.svg);
+                }
+            }
+
+        }
+
+    }
+
+    .footer--links {
+        display: flex;
+        opacity: 0;
+        transition: all 800ms ease-in;
+        @include responsive {
+            //flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 90vw;
+            margin-top: 2.5rem;
+        }
+        @include responsive($tablet) {
+            width: 40vw;
+            margin-top: 0;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            align-content: center;
+
+        }
+        ul {
+            padding: 0;
+            margin: 0.5rem;
+            list-style-type: none;
+        }
+        li:not(.footer--links-header) {
+            padding: 0.5rem 0;
+        }
+        a {
+            text-decoration: none;
+            color: lightgray;
+            font-size: 0.9rem;
+            &:hover {
+                //color: rgb(244, 107, 12);
+                color: #976948;
+            }
+        }
+    }
+    li.footer--links-header {
+        font-weight: 600;
+        @include responsive {
+            padding: 0 0.5rem 0.5rem 0;
+        }
+        @include responsive($tablet) {
+            padding: 0 0.5rem 1.5rem 0;
+        }
+    }
+
+    .footer--policy {
+        text-align: center;
+        margin: 1rem;
+        a {
+
+            @include responsive {
+                margin: 0.2rem;
+                padding: 0.2rem;
+                font-size: 0.8rem;
+            }
+            @include responsive($tablet) {
+                margin: 0.5rem;
+                font-size: 1rem;
+            }
+            &:hover {
+                //color: rgb(244, 107, 12);
+                color: #976948;
+            }
+        }
+
+    }
+}

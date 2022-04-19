@@ -1,0 +1,107 @@
+.download--panel {
+  display: flex;
+  align-items: center;
+}
+@media screen and (min-width: 320px) {
+  .download--panel {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    justify-content: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 810px) {
+  .download--panel {
+    text-align: left;
+    padding: 5rem 4rem 5rem 4rem;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 320px) {
+  .download--panel .download__panel--intro {
+    width: 75vw;
+    margin-bottom: 1.5rem;
+  }
+}
+@media screen and (min-width: 810px) {
+  .download--panel .download__panel--intro {
+    width: 35vw;
+    margin-bottom: 0rem;
+  }
+}
+.download--panel .download__panel--intro-header {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+.download--panel .download__panel--intro-text {
+  color: gray;
+  line-height: 1.5;
+}
+@media screen and (min-width: 320px) {
+  .download--panel .download__panel--intro-text {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+}
+@media screen and (min-width: 810px) {
+  .download--panel .download__panel--intro-text {
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+  }
+}
+@media screen and (min-width: 320px) {
+  .download--panel .download__panel--intro-buttons a {
+    display: block;
+  }
+}
+@media screen and (min-width: 810px) {
+  .download--panel .download__panel--intro-buttons a {
+    display: inline;
+    margin-right: 0.7rem;
+  }
+}
+@media screen and (min-width: 320px) {
+  .download--panel .download__panel--image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 810px) {
+  .download--panel .download__panel--image {
+    width: 65vw;
+  }
+}
+.download--panel .download__panel--image img {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  -webkit-backface-visibility: hidden;
+  -ms-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@media screen and (min-width: 320px) {
+  .download--panel .download__panel--image img {
+    width: 70vw !important;
+    height: auto;
+  }
+}
+@media screen and (min-width: 810px) {
+  .download--panel .download__panel--image img {
+    width: 25rem !important;
+    height: 25rem !important;
+  }
+}
+@media screen and (min-width: 961px) {
+  .download--panel .download__panel--image img {
+    width: 30rem !important;
+    height: 30rem !important;
+  }
+}
+
+/*# sourceMappingURL=download-app.css.map */

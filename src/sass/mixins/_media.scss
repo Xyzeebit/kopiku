@@ -1,0 +1,15 @@
+$mobile-small: 320px;
+$mobile-medium: 481px;
+$mobile-large: 641px;
+
+$tablet: 810px;
+$tablet-medium: 961px;
+$tablet-large: 1025px;
+
+$desktop: 1281px;
+
+@mixin responsive($screen-wid: 320px) {
+    @media screen and (min-width: $screen-wid) {
+        @content;
+    }
+}

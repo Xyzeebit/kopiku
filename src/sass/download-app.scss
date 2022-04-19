@@ -1,0 +1,95 @@
+@import 'mixins/media';
+
+.download--panel {
+    display: flex;
+    align-items: center;
+    @include responsive {
+        padding: 2rem 1.5rem 2rem 1.5rem;
+        justify-content: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    @include responsive($tablet) {
+        text-align: left;
+        padding: 5rem 4rem 5rem 4rem;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .download__panel--intro {
+        @include responsive {
+            width: 75vw;
+            margin-bottom: 1.5rem;
+        }
+        @include responsive($tablet) {
+            width: 35vw;
+            margin-bottom: 0rem;
+        }
+    }
+    .download__panel--intro-header {
+        font-weight: 700;
+        font-size: 1.8rem;
+    }
+    .download__panel--intro-text {
+        color: gray;
+        line-height: 1.5;
+        @include responsive {
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+        }
+        @include responsive($tablet) {
+            padding-top: 2rem;
+            padding-bottom: 5rem;
+        }
+    }
+
+    .download__panel--intro-buttons {
+        a {
+            @include responsive {
+                display: block;
+            }
+            @include responsive($tablet) {
+                display: inline;
+                margin-right: 0.7rem;
+            }
+        }
+    }
+
+    .download__panel--image {
+        @include responsive {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            //width: 100vw;
+        }
+        @include responsive($tablet) {
+            width: 65vw;
+        }
+        img {
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -o-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            -ms-interpolation-mode: nearest-neighbor;
+            -webkit-backface-visibility: hidden;
+            -ms-transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+
+            @include responsive {
+                width: 70vw !important;
+                height: auto;
+            }
+            @include responsive($tablet) {
+                width: 25rem !important;
+                height: 25rem !important;
+            }
+             @include responsive($tablet-medium) {
+                 width: 30rem !important;
+                 height: 30rem !important;
+             }
+        }
+    }
+}
