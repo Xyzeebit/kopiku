@@ -12,7 +12,7 @@ import icon_snack from '../images/icon-snack.svg';
 
 export default function OurProducts() {
     const [productSearchValue, setProductSearchValue] = useState('');
-    const [empty, setEmpty] = useState(true);
+    const [empty, setEmpty] = useState(false);
     const [active, setActive] = useState(3);
     const [store] = useContext(StoreContext);
     const { products } = store;
