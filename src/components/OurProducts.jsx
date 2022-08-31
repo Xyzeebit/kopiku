@@ -12,8 +12,15 @@ import icon_snack from '../images/icon-snack.svg';
 
 export default function OurProducts() {
     const [productSearchValue, setProductSearchValue] = useState('');
+    const [empty, setEmpty] = useState(true);
+    const [active, setActive] = useState(3);
     const [store] = useContext(StoreContext);
     const { products } = store;
+  
+    const handleClick = (a, b) => {
+      setActive(a);
+      setEmpty(b);
+    }
     return (
       <div id="our-products" className="our-products">
       <div className="our-products__navigations--container">
@@ -31,7 +38,7 @@ export default function OurProducts() {
               <a href="/bundles">Bundles</a>
               <a href="/snacks">Snacks</a>
             </div>*/}
-            <ProductsMenu />
+            <ProductsMenu active={active} handleClick={ handleClick }  />
             <form
               className="our-products__search--form"
               onSubmit={(evt) => {
@@ -55,13 +62,14 @@ export default function OurProducts() {
           </div>
         </div>
 
-        <div className="products__list">
+        {empty ? <EmptyList /> :
+          <div className="products__list">
           {products.beans.map((item) => (
             <a key={item._id} href={`/beans/${item._id}`}>
               <ProductItem {...item} />
             </a>
           ))}
-        </div>
+        </div>}
     </div>
   );
 }
@@ -82,12 +90,45 @@ const ProductItem = ({ image, title, description, price }) => {
     );
 }
 
-const ProductsMenu = () => (
+const ProductsMenu = ({ active, handleClick }) => (
   <div className="our-products__navigation--buttons">
-    <IconButton icon={icon_coffee} text="Coffee" />
-    <IconButton icon={icon_tea} text="Tea" />
-    <IconButton icon={icon_beans} text="Beans" active="icon__selected" />
-    <IconButton icon={icon_bundles} text="Bundles" />
-    <IconButton icon={icon_snack} text="Snacks" />
+    <IconButton
+      icon={icon_coffee}
+      text="Coffee"
+      active={`${active === 1 ? "icon__selected" : ""}`}
+      onClick={() => handleClick(1, true)}
+    />
+    <IconButton
+      icon={icon_tea}
+      text="Tea"
+      active={`${active === 2 ? "icon__selected" : ""}`}
+      onClick={() => handleClick(2, true)}
+    />
+    <IconButton
+      icon={icon_beans}
+      text="Beans"
+      active={`${active === 3 ? "icon__selected" : ""}`}
+      onClick={() => handleClick(3, false)}
+    />
+    <IconButton
+      icon={icon_bundles}
+      text="Bundles"
+      active={`${active === 4 ? "icon__selected" : ""}`}
+      onClick={() => handleClick(4, true)}
+    />
+    <IconButton
+      icon={icon_snack}
+      text="Snacks"
+      active={`${active === 5 ? "icon__selected" : ""}`}
+      onClick={() => handleClick(5, true)}
+    />
   </div>
-)
+);
+
+const EmptyList = () => {
+  return (
+    <div className='empty__list'>
+      <h3>Sorry, we're out of stock please check back later</h3>
+    </div>
+  )
+}

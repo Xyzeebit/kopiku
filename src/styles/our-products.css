@@ -289,4 +289,13 @@ a.selected {
   font-weight: 700;
 }
 
+.empty__list {
+  padding: 2rem;
+  background: #ddd;
+}
+.empty__list h3 {
+  color: #666;
+  text-align: center;
+}
+
 /*# sourceMappingURL=our-products.css.map */

@@ -274,3 +274,11 @@ a.selected {
         font-weight: 700;
     }
 }
+.empty__list {
+  padding: 2rem;
+  background: #ddd;
+  h3 {
+    color: #666;
+    text-align: center;
+  }
+}
