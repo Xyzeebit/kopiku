@@ -1,0 +1,47 @@
+@import 'mixins/media';
+
+.shop {
+    background: #fffafa;
+
+    header {
+        background: #fff;
+        @include responsive {
+            padding: 1rem;
+            width: 100%;
+        }
+        @include responsive($tablet) {
+            padding: 1rem 3.5rem 1rem 3.5rem;
+        }
+    }
+    .nav-brand {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include responsive($tablet) {
+            width: 18rem;
+        }
+    }
+    .nav-brand img {
+        @include responsive {
+            width: 60px;
+            height: 40px;
+        }
+        @include responsive($tablet) {
+            width: 80px;
+            height: 50px;
+        }
+    }
+    .nav-brand > div {
+        p {
+            color: #666;
+            margin-block-start: 0;
+            margin-block-end: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+        h4 {
+            margin-block-start: 0.5rem;
+            margin-block-end: 0;
+        }
+    }
+}

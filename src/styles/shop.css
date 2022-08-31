@@ -1,0 +1,52 @@
+.shop {
+  background: #fffafa;
+}
+.shop header {
+  background: #fff;
+}
+@media screen and (min-width: 320px) {
+  .shop header {
+    padding: 1rem;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 810px) {
+  .shop header {
+    padding: 1rem 3.5rem 1rem 3.5rem;
+  }
+}
+.shop .nav-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (min-width: 810px) {
+  .shop .nav-brand {
+    width: 18rem;
+  }
+}
+@media screen and (min-width: 320px) {
+  .shop .nav-brand img {
+    width: 60px;
+    height: 40px;
+  }
+}
+@media screen and (min-width: 810px) {
+  .shop .nav-brand img {
+    width: 80px;
+    height: 50px;
+  }
+}
+.shop .nav-brand > div p {
+  color: #666;
+  margin-block-start: 0;
+  margin-block-end: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+.shop .nav-brand > div h4 {
+  margin-block-start: 0.5rem;
+  margin-block-end: 0;
+}
+
+/*# sourceMappingURL=shop.css.map */

@@ -7,6 +7,8 @@ import '../styles/view-all.css';
 import '../styles/our-products.css';
 import '../styles/how-its-works.css';
 
+import '../styles/shop.css';
+
 
 function MyApp({ Component, pageProps }) {
   return (

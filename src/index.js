@@ -12,6 +12,8 @@ import './styles/how-its-works.css';
 import './styles/intro.css';
 import './styles/mobile-app.css';
 
+import './styles/shop.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <Layout>
