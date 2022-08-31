@@ -48,5 +48,10 @@
   margin-block-start: 0.5rem;
   margin-block-end: 0;
 }
+@media screen and (min-width: 810px) {
+  .shop .content {
+    padding: 3rem;
+  }
+}
 
 /*# sourceMappingURL=shop.css.map */

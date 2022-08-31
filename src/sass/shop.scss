@@ -44,4 +44,9 @@
             margin-block-end: 0;
         }
     }
+    .content {
+        @include responsive($tablet) {
+            padding: 3rem;
+        }
+    }
 }

@@ -58,7 +58,7 @@ export default function ViewAll() {
                   id="offer-input"
                   placeholder="Enter your email..."
                   className="offer-input"
-                  autocomplete="off"
+                  autoComplete="off"
                   value={offerSubcribersEmail}
                   onChange={evt => setOfferSubscribersEmail(evt.target.value)}
                 />
