@@ -164,6 +164,8 @@
       }
       .icon__button:not(.icon__selected) {
         &:hover {
+          background:#212621;
+          color: #fff;
           img {
             filter: invert(100%);
           }

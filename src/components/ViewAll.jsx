@@ -54,10 +54,11 @@ export default function ViewAll() {
               </label>
               <div className="offer-form-group">
                 <input
-                  type="text"
+                  type="email"
                   id="offer-input"
                   placeholder="Enter your email..."
                   className="offer-input"
+                  autocomplete="off"
                   value={offerSubcribersEmail}
                   onChange={evt => setOfferSubscribersEmail(evt.target.value)}
                 />

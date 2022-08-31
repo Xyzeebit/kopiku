@@ -174,6 +174,10 @@
 .our-products .our-products__navigation--buttons .icon__selected span {
   color: #fff;
 }
+.our-products .our-products__navigation--buttons .icon__button:not(.icon__selected):hover {
+  background: #212621;
+  color: #fff;
+}
 .our-products .our-products__navigation--buttons .icon__button:not(.icon__selected):hover img {
   filter: invert(100%);
 }

@@ -222,6 +222,13 @@ form.view-all__offers-signup-form .offer-input {
   padding-right: 0.6rem;
   color: #fff;
 }
+form.view-all__offers-signup-form .offer-input:focus, form.view-all__offers-signup-form .offer-input :active {
+  background: none;
+}
+form.view-all__offers-signup-form input:-internal-autofill-selected {
+  background-color: transparent !important;
+  color: #fff !important;
+}
 form.view-all__offers-signup-form .submit-for-offer {
   padding: 0.5rem;
   width: 7rem;
@@ -251,6 +258,7 @@ form.view-all__offers-signup-form .offer-form-group {
   -o-border-radius: 20px;
   border-radius: 20px;
   padding: 0.2rem;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=view-all.css.map */

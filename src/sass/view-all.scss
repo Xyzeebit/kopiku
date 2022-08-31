@@ -203,6 +203,14 @@ form.view-all__offers-signup-form {
         padding-left: 0.6rem;
         padding-right: 0.6rem;
         color: #fff;
+        &:focus,:active {
+            background: none;
+        }
+        
+    }
+    input:-internal-autofill-selected {
+        background-color: transparent !important;
+        color: #fff !important;
     }
     .submit-for-offer {
         padding: 0.5rem;
@@ -233,5 +241,6 @@ form.view-all__offers-signup-form {
         -o-border-radius: 20px;
         border-radius: 20px;
         padding: 0.2rem;
+        overflow: hidden;
     }
 }
