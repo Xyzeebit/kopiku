@@ -3,11 +3,20 @@ import { useParams, Link } from 'react-router-dom';
 import { StoreContext } from '../components/ContextComponents';
 
 import logo from '../images/logo.png';
+import plus from '../images/icon-add-outline.svg';
+import minus from '../images/icon-minus-outline.svg';
+import cart from '../images/icon-cart.svg';
+import fav_outline from '../images/icon-favorite-outline.svg';
+import fav_fill from '../images/icon-favorite-fill.svg';
+import star from '../images/icon-star.svg';
+import arrow from '../images/right-arrow.svg';
+
 
 export default function Details() {
     const params = useParams();
     const [store] = useContext(StoreContext);
     const [item, setItem] = useState({});
+    
 
     useEffect(() => {
         const product = store.products.beans.find( i => i._id === params.id);
@@ -20,7 +29,7 @@ export default function Details() {
         <div className="shop">
             <Header />
             <div className="content">
-                <p>{item.description}</p>
+                <Product item={item} />
             </div>
         </div>
     )
@@ -47,37 +56,63 @@ const Header = () => {
     );
 }
 
-const Product = () => {
+const Product = ({ item }) => {
+    const [selected, setSelected] = useState(2);
+    const [fav, setFav] = useState(false);
     return (
         <div className="detail">
             <div className="detail__bar">
                 <Link to="/">
-                    <img src="back" alt="go back to home page" width="25" height="20" />
+                    <img
+                        src={arrow}
+                        alt="go back to home page"
+                        width="25"
+                        height="20"
+                    />
                 </Link>
                 <p>Detail item</p>
-                <img src="favorite" alt="add to favorite" width="25" height="20" />
+                <img
+                    src={fav ? fav_fill : fav_outline}
+                    alt="add to favorite" width="25" height="20"
+                    onClick={() => setFav(!fav)}
+                />
             </div>
             <div className="image__container">
-                <img src="favorite" alt="add to favorite" width="150" height="100" />
+                <img src={item.image} alt={item.title} width="150" height="100" />
             </div>
             <div className="item__group--title">
-                <h3>Beans</h3>
+                <h3>{item.title}</h3>
                 <div className="badge">
-                    <img src="star" alt="star" width="10" height="10" />
+                    <img src={star} alt="star" width="10" height="10" />
                     <span>4.9</span>
                 </div>
             </div>
             <p className="sub__title">Coffee Beans</p>
-            <p className="pack">Volumn Pack</p>
+            <p className="pack">Volume Pack</p>
             <div className="pack__group">
-                <button>250g</button>
-                <button>500g</button>
-                <button>750g</button>
+                <button
+                    className={`${selected === 2} ? 'selected' : ''`}
+                    onClick={() => setSelected(1)}
+                >
+                    250g
+                </button>
+                <button
+                    className={`${selected === 2} ? 'selected' : ''`}
+                    onClick={() => setSelected(1)}
+                >
+                    500g
+                </button>
+                <button
+                    className={`${selected === 2} ? 'selected' : ''`}
+                    onClick={() => setSelected(1)}
+                >
+                    750g
+                </button>
             </div>
             <div className="sub__add">
                 <button className="sub__button">
                     <img
-                        src="sub"
+                        src={minus}
                         alt="subtract from quantity"
                         width="25"
                         height="25"
@@ -85,7 +120,7 @@ const Product = () => {
                 </button>
                 <p>1</p>
                 <button className="add__button">
-                    <img src="add" alt="add more to quantity" width="25" height="25" />
+                    <img src={plus} alt="add more to quantity" width="25" height="25" />
                 </button>
             </div>
             <div className="add-to__cart--group">
@@ -94,12 +129,7 @@ const Product = () => {
                     <h4>$42.50</h4>
                 </div>
                 <button className="add__to--cart">
-                    <img
-                        src="bag"
-                        alt="add item to cart"
-                        width="25"
-                        height="25"
-                    />
+                    <img src={cart} alt="add item to cart" width="25" height="25" />
                     <span>Add to cart</span>
                 </button>
             </div>

@@ -50,6 +50,7 @@ export const appStore = {
         title: "Ethiopian Beans",
         description: `Selected coffee beans with the best quality from Ethiopia`,
         price: "33.50",
+        favorite: false,
       },
       //   {
       //     _id: "1232brush92",
@@ -64,6 +65,7 @@ export const appStore = {
         title: "Guatemala Beans",
         description: `Selected coffee beans with the best quality from Guatemala`,
         price: "35.00",
+        favorite: false,
       },
       {
         _id: "12ew32sh92",
@@ -71,6 +73,7 @@ export const appStore = {
         title: "Costa-Rica Beans",
         description: `Selected coffee beans with the best quality from Costa Rica`,
         price: "34.00",
+        favorite: false,
       },
       {
         _id: "123we2sh92",
@@ -78,6 +81,7 @@ export const appStore = {
         title: "Peru Beans",
         description: `Selected coffee beans with the best quality from Peru`,
         price: "30.00",
+        favorite: false,
       },
       {
         _id: "1232shds92",
@@ -85,6 +89,7 @@ export const appStore = {
         title: "Indonesia Beans",
         description: `Selected coffee beans with the best quality from Indonesia`,
         price: "35.00",
+        favorite: false,
       },
     ],
   },

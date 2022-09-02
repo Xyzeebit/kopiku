@@ -53,5 +53,26 @@
     padding: 3rem;
   }
 }
+@media screen and (min-width: 961px) {
+  .shop .content {
+    padding: 4rem;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .content .detail {
+    width: 80vw;
+  }
+}
+@media screen and (min-width: 810px) {
+  .content .detail {
+    width: 18rem;
+  }
+}
+@media screen and (min-width: 961px) {
+  .content .detail {
+    width: 20rem;
+  }
+}
 
 /*# sourceMappingURL=shop.css.map */
