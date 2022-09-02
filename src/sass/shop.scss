@@ -56,11 +56,107 @@
 .content .detail {
     @include responsive {
         width: 80vw;
+        background: #fff;
+        padding: 1rem;
     }
     @include responsive($tablet) {
         width: 18rem;
     }
     @include responsive($tablet-medium) {
         width: 20rem;
+    }
+
+    .detail__bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a img {
+            transform: rotate(-180deg);
+        }
+    }
+    .image__container {
+        width: 100%;
+        height: 20rem;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .image__container img {
+        width: 100%;
+        height: 100%;
+    }
+    .item__group--title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        h3 {
+            margin: 0;
+        }
+        .badge {
+            padding: 0.2rem;
+            background: #dac1af;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .badge img {
+            margin-right: 0.5rem;
+            margin-left: 0.1rem;
+            width: 16px;
+            height: 16px;
+            filter: invert(0.34) hue-rotate(161deg) brightness(1.11) sepia(1) saturate(5.1) !important;
+        }
+        .badge span {
+            font-size: 0.9rem;
+            color: #d47530;
+            font-weight: 500;
+        }
+    }
+    .sub__title {
+        margin: 0.5rem 0 0 0;
+        font-size: 0.8rem;
+        color: #666;
+    }
+    .pack__group {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        button {
+            padding: 10px 15px 10px 15px;
+            border-radius: 20px;
+            border: none;
+        }
+        button:not(.selected) {
+            background-color: lightgrey;
+        }
+        button.selected {
+            background-color: gray;
+            font-weight: 600;
+        }
+    }
+    .sub__add--group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            border: none;
+            background: #fff;
+            box-shadow: 0px 0px 2px #000000c5;
+            // padding: 5px;
+            border-radius: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        p {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+        }
     }
 }

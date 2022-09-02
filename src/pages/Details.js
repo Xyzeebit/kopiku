@@ -91,25 +91,25 @@ const Product = ({ item }) => {
             <p className="pack">Volume Pack</p>
             <div className="pack__group">
                 <button
-                    className={`${selected === 2} ? 'selected' : ''`}
+                    className={`${selected === 1 ? 'selected' : ''}`}
                     onClick={() => setSelected(1)}
                 >
                     250g
                 </button>
                 <button
-                    className={`${selected === 2} ? 'selected' : ''`}
-                    onClick={() => setSelected(1)}
+                    className={`${selected === 2 ? 'selected' : ''}`}
+                    onClick={() => setSelected(2)}
                 >
                     500g
                 </button>
                 <button
-                    className={`${selected === 2} ? 'selected' : ''`}
-                    onClick={() => setSelected(1)}
+                    className={`${selected === 3 ? 'selected' : ''}`}
+                    onClick={() => setSelected(3)}
                 >
                     750g
                 </button>
             </div>
-            <div className="sub__add">
+            <div className="sub__add--group">
                 <button className="sub__button">
                     <img
                         src={minus}
