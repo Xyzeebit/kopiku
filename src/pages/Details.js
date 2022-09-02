@@ -61,11 +61,15 @@ const Product = ({ item }) => {
     const [fav, setFav] = useState(false);
     const [price, setPrice] = useState(item.price);
     const [quantity, setQuantity] = useState(1);
+    const [prePack, setPrePack] = useState(1);
 
     const increment = () => {
         if (quantity < 1001) {
             const $price = item.price * (quantity + 1);
             setQuantity(quantity + 1);
+            if (selected) {
+                
+            }
             setPrice(parseFloat($price).toFixed(2));
         }
     }
@@ -76,6 +80,25 @@ const Product = ({ item }) => {
             setPrice(parseFloat($price).toFixed(2));
         }
     }
+    
+    const handlePack = n => {
+        setPrePack(selected);
+        setSelected(n);
+    }
+
+    useEffect(() => {
+        if (selected === 2) {
+            const $price = price / prePack;
+            setPrice(parseFloat($price));
+        } else if (selected === 3) {
+            const $price = price / prePack;
+            setPrice(parseFloat($price));
+
+        } else {
+            const $price = price / prePack;
+            setPrice(parseFloat($price));
+        }
+    }, [selected]);
 
     return (
       <div className="detail">
@@ -113,19 +136,19 @@ const Product = ({ item }) => {
         <div className="pack__group">
           <button
             className={`${selected === 1 ? "selected" : ""}`}
-            onClick={() => setSelected(1)}
+            onClick={() => handlePack(1)}
           >
             250g
           </button>
           <button
             className={`${selected === 2 ? "selected" : ""}`}
-            onClick={() => setSelected(2)}
+            onClick={() => handlePack(2)}
           >
             500g
           </button>
           <button
             className={`${selected === 3 ? "selected" : ""}`}
-            onClick={() => setSelected(3)}
+            onClick={() => handlePack(3)}
           >
             750g
           </button>
