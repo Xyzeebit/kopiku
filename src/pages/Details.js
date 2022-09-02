@@ -59,13 +59,14 @@ const Header = () => {
 const Product = ({ item }) => {
     const [selected, setSelected] = useState(1);
     const [fav, setFav] = useState(false);
-    const [price, setPrice] = useState(item.price);
+    const [price, setPrice] = useState(parseFloat(item.price));
     const [quantity, setQuantity] = useState(1);
     const [prePack, setPrePack] = useState(1);
+    const [packPrice, setPackPrice] = useState(1 * item.price);
 
     const increment = () => {
         if (quantity < 1001) {
-            const $price = item.price * (quantity + 1);
+            const $price = packPrice * (quantity + 1);
             setQuantity(quantity + 1);
             if (selected) {
                 
@@ -75,7 +76,7 @@ const Product = ({ item }) => {
     }
     const decrement = () => {
         if (quantity > 0) {
-            const $price = price - item.price;
+            const $price = price - packPrice;
             setQuantity(quantity - 1);
             setPrice(parseFloat($price).toFixed(2));
         }
@@ -83,15 +84,32 @@ const Product = ({ item }) => {
     
     const handlePack = n => {
         setPrePack(selected);
+        if (n === 1) {
+            setPackPrice(item.price * 1);
+        } else if (n === 2) {
+            setPackPrice(item.price * 2);
+        } else {
+            setPackPrice(item.price * 2.5);
+        }
         setSelected(n);
     }
 
     useEffect(() => {
+        if (price === 0) {
+            setPrice(parseFloat(item.price));
+        }
+    }, []);
+
+    useEffect(() => {
+        console.log(item)
+        console.log(selected, prePack, price)
         if (selected === 2) {
-            const $price = price / prePack;
+            let $price = price / prePack;
+            $price = price * selected;
             setPrice(parseFloat($price));
         } else if (selected === 3) {
-            const $price = price / prePack;
+            let $price = price / prePack;
+            $price = price * 2.5;
             setPrice(parseFloat($price));
 
         } else {
