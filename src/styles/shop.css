@@ -1,5 +1,5 @@
 .shop {
-  background: #fffafa;
+  background: #f5f5f5;
 }
 .shop header {
   background: #fff;
@@ -64,6 +64,7 @@
     width: 80vw;
     background: #fff;
     padding: 1rem;
+    border-radius: 20px;
   }
 }
 @media screen and (min-width: 810px) {
@@ -83,6 +84,12 @@
 }
 .content .detail .detail__bar a img {
   transform: rotate(-180deg);
+}
+.content .detail .detail__bar .fav {
+  filter: invert(0.34) hue-rotate(161deg) brightness(1.11) sepia(1) saturate(5.1) !important;
+}
+.content .detail .detail__bar p {
+  font-weight: 600;
 }
 .content .detail .image__container {
   width: 100%;
@@ -123,6 +130,7 @@
   font-size: 0.9rem;
   color: #d47530;
   font-weight: 500;
+  margin-right: 0.1rem;
 }
 .content .detail .sub__title {
   margin: 0.5rem 0 0 0;
@@ -138,31 +146,75 @@
   padding: 10px 15px 10px 15px;
   border-radius: 20px;
   border: none;
+  font-size: 0.8rem;
 }
 .content .detail .pack__group button:not(.selected) {
   background-color: lightgrey;
+  color: gray;
 }
 .content .detail .pack__group button.selected {
   background-color: gray;
   font-weight: 600;
+  color: #000;
 }
 .content .detail .sub__add--group {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
 }
 .content .detail .sub__add--group button {
   border: none;
   background: #fff;
-  box-shadow: 0px 0px 2px #000000c5;
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .content .detail .sub__add--group p {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+.content .detail .add-to__cart--group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.content .detail .price__group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.content .detail .price__group p {
+  color: #666;
+  margin: 0;
+  font-size: 0.6rem;
+}
+.content .detail .price__group h5 {
+  margin: 0.5rem 0;
+}
+.content .detail .add__to--cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  border-radius: 20px;
+  border: none;
+  background: #000;
+  outline: none;
+  color: #fff;
+  margin-left: 3rem;
+}
+.content .detail .add__to--cart:hover {
+  background: #d47530;
+}
+.content .detail .add__to--cart img {
+  width: 15px;
+  height: 15px;
+  margin-right: 0.7rem;
+  margin-left: 1rem;
+  filter: invert(1);
+}
+.content .detail .add__to--cart span {
+  font-size: 0.8rem;
+  margin-right: 1rem;
 }
 
 /*# sourceMappingURL=shop.css.map */

@@ -1,7 +1,7 @@
 @import 'mixins/media';
 
 .shop {
-    background: #fffafa;
+    background: #f5f5f5;
 
     header {
         background: #fff;
@@ -58,6 +58,7 @@
         width: 80vw;
         background: #fff;
         padding: 1rem;
+        border-radius: 20px;
     }
     @include responsive($tablet) {
         width: 18rem;
@@ -73,6 +74,12 @@
 
         a img {
             transform: rotate(-180deg);
+        }
+        .fav {
+            filter: invert(0.34) hue-rotate(161deg) brightness(1.11) sepia(1) saturate(5.1) !important;
+        }
+        p {
+            font-weight: 600;
         }
     }
     .image__container {
@@ -114,6 +121,7 @@
             font-size: 0.9rem;
             color: #d47530;
             font-weight: 500;
+            margin-right: 0.1rem;
         }
     }
     .sub__title {
@@ -130,33 +138,76 @@
             padding: 10px 15px 10px 15px;
             border-radius: 20px;
             border: none;
+            font-size: 0.8rem;
         }
         button:not(.selected) {
             background-color: lightgrey;
+            color: gray;
         }
         button.selected {
             background-color: gray;
             font-weight: 600;
+            color: #000;
         }
     }
     .sub__add--group {
         display: flex;
         justify-content: center;
         align-items: center;
-
+        margin-top: 1rem;
         button {
             border: none;
             background: #fff;
-            box-shadow: 0px 0px 2px #000000c5;
-            // padding: 5px;
-            border-radius: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         p {
             margin-left: 0.5rem;
             margin-right: 0.5rem;
         }
+    }
+    .add-to__cart--group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+    .price__group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+    .price__group p {
+        color: #666;
+        margin: 0;
+        font-size: 0.6rem;
+    }
+    .price__group h5 {
+        margin: 0.5rem 0;
+    }
+    .add__to--cart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.8rem;
+        border-radius: 20px;
+        border: none;
+        background: #000;
+        outline: none;
+        color: #fff;
+        margin-left: 3rem;
+        &:hover {
+            background: #d47530;
+        }
+    }
+    .add__to--cart img {
+        width: 15px;
+        height: 15px;
+        margin-right: 0.7rem;
+        margin-left: 1rem;
+        filter: invert(1);
+    }
+    .add__to--cart span {
+        font-size: 0.8rem;
+        margin-right: 1rem;
     }
 }
