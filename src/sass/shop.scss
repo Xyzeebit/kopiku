@@ -8,6 +8,9 @@
         @include responsive {
             padding: 1rem;
             width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         @include responsive($tablet) {
             padding: 1rem 3.5rem 1rem 3.5rem;
@@ -20,6 +23,9 @@
         @include responsive($tablet) {
             width: 18rem;
         }
+    }
+    .nav-brand a {
+        margin-right: 1rem;
     }
     .nav-brand img {
         @include responsive {
@@ -43,6 +49,42 @@
             margin-block-start: 0.5rem;
             margin-block-end: 0;
         }
+    }
+    .cart__button {
+       
+        &:hover .cart__button--container {
+            background: #dac1af;
+        }
+        &:hover .cart__button--container img {
+            // filter: invert(1);
+        }
+    }
+    .cart__button--container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+        border: 1px solid #dac1af;
+    }
+    .cart__button--container img {
+        width: 25px;
+    }
+    .cart__button--container span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 18px;
+        height: 18px;
+        background: #d47530;
+        color: #fff;
+        font-size: 0.75rem;
+        border-radius: 100px;
     }
     .content {
         @include responsive {

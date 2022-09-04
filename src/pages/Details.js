@@ -52,7 +52,8 @@ const Header = () => {
                     <p>Welcome to Kopiku shop</p>
                     <h4>Choose your beans</h4>
                 </div>
-            </div>
+        </div>
+        <CartButton items={8} />
         </header>
     );
 }
@@ -95,6 +96,10 @@ const Product = ({ item }) => {
         setPrice750(price * 2.5 * quantity);
       }
       setSelected(n);
+  }
+
+  const addToCart = () => {
+    
   }
   
   useEffect(() => {
@@ -175,7 +180,7 @@ const Product = ({ item }) => {
             <p>Total Price:</p>
             <h5>${price ? (selected === 1 ? price : selected === 2 ? price500 : price750) : item.price}</h5>
           </div>
-          <button className="add__to--cart">
+          <button className="add__to--cart" onClick={addToCart}>
             <img src={cart} alt="add item to cart" width="25" height="25" />
             <span>Add to cart</span>
           </button>
@@ -211,4 +216,20 @@ const BeansList = ({ beans }) => {
       })}
     </div>
   );
+}
+
+const CartButton = ({ items }) => {
+  return (
+    <Link to="/cart" className="cart__button">
+      <div className="cart__button--container">
+        <img
+          src={cart}
+          alt="view items in your cart"
+          width={40}
+          height={40}
+        />
+        <span>{items}</span>
+      </div>
+    </Link>
+  )
 }
