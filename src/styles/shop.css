@@ -262,6 +262,12 @@
   font-size: 0.8rem;
   font-weight: 400;
   color: gray;
+  margin-block-start: 0.5rem;
+  margin-block-end: 0.5rem;
+}
+.flex-start h5 {
+  margin-block-start: 0.5rem;
+  margin-block-end: 1rem;
 }
 
 .more__bean--img_container {
@@ -270,6 +276,8 @@
 
 .more__beans--item a {
   padding: 8px 3rem 10px 3rem;
+  margin-block-end: 1rem;
+  font-weight: 400;
   border-radius: 20px;
   background: lightgrey;
   border: none;

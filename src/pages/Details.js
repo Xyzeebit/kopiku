@@ -189,23 +189,23 @@ const BeansList = ({ beans }) => {
     <div className="more__beans">
       {beans.map((bean) => {
         return (
-          <div key={bean.id} className="more__beans--item">
+          <div key={bean._id} className="more__beans--item">
             <div className="flex-start">
               <div className="more__bean--img_container">
                 <img
                   src={bean.image}
                   alt={bean.title}
-                  width={100}
-                  height={150}
+                  width={70}
+                  height={100}
                 />
               </div>
               <div>
                 <h4>{bean.title}</h4>
                 <p>{bean.description}</p>
-                <h6>{bean.price}</h6>
+                <h5>${bean.price}</h5>
               </div>
             </div>
-            <Link to={`/beans/${beans._id}`}>View details</Link>
+            <Link to={`/beans/${bean._id}`}>View details</Link>
           </div>
         );
       })}
