@@ -48,11 +48,13 @@
         @include responsive {
             display: flex;
             justify-content: space-evenly;
-            align-items: flex-start;
+            align-items: center;
             flex-direction: column;
+            padding: 1.5rem;
         }
         @include responsive($tablet) {
             padding: 3rem;
+            align-items: flex-start;
             flex-direction: row;
         }
         @include responsive($tablet-medium) {
@@ -62,9 +64,10 @@
 }
 .content .detail {
     @include responsive {
-        width: 80vw;
+        width: 100%;
         background: #fff;
         padding: 1rem;
+        margin-bottom: 2rem;
         border-radius: 20px;
         
     }
