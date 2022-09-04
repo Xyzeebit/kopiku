@@ -18,6 +18,7 @@ export const appTheme = {
 }
 
 export const appStore = {
+  cart: [],
   menuItems: ["Home", "How it works", "Product", "Help"],
   howItWorks: [
     {

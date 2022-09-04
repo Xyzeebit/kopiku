@@ -53,10 +53,10 @@
     .cart__button {
        
         &:hover .cart__button--container {
-            background: #dac1af;
+            background: #d47530;
         }
         &:hover .cart__button--container img {
-            // filter: invert(1);
+            filter: invert(1);
         }
     }
     .cart__button--container {
@@ -320,4 +320,8 @@
     border-radius: 20px;
     background: lightgrey;
     border: none;
+    &:hover {
+        background: #d47530;
+        color: #fff;
+    }
 }

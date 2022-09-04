@@ -14,9 +14,9 @@ import arrow from '../images/right-arrow.svg';
 
 export default function Details() {
     const params = useParams();
-    const [store] = useContext(StoreContext);
+    const [store, setStore] = useContext(StoreContext);
     const [item, setItem] = useState({});
-    
+  const [appCart, setCart] = useState([]);
 
     useEffect(() => {
         const product = store.products.beans.find( i => i._id === params.id);
@@ -24,19 +24,24 @@ export default function Details() {
             setItem(product);
         }
     }, [params.id, store.products]);
+  useEffect(() => {
+    if (store.cart) {
+      setCart(store.cart);
+    }
+  }, [store.cart]);
 
   return (
     <div className="shop">
-      <Header />
+      <Header cartItems={appCart.length} />
       <div className="content">
-        <Product item={item} />
+        <Product item={item} addToCart={setCart} />
         <BeansList beans={store.products.beans} />
       </div>
     </div>
   );
 }
 
-const Header = () => {
+const Header = ({ cartItems }) => {
     return (
         <header>
             <div className="nav-brand">
@@ -53,12 +58,12 @@ const Header = () => {
                     <h4>Choose your beans</h4>
                 </div>
         </div>
-        <CartButton items={8} />
+        <CartButton items={cartItems} />
         </header>
     );
 }
 
-const Product = ({ item }) => {
+const Product = ({ item, addToCart }) => {
     const [selected, setSelected] = useState(1);
     const [fav, setFav] = useState(false);
     const [price, setPrice] = useState(0);
@@ -98,8 +103,19 @@ const Product = ({ item }) => {
       setSelected(n);
   }
 
-  const addToCart = () => {
-    
+  const handleAddToCart = () => {
+    const cart = {};
+    if (selected === 1) {
+      cart.weight = 250;
+      cart.price = price;
+    } else if (selected === 2) {
+      cart.weight = 500;
+      cart.price = price500;
+    } else {
+      cart.weight = 750;
+      cart.price = price750;
+    }
+    cart.quantity = quantity;
   }
   
   useEffect(() => {
@@ -180,7 +196,7 @@ const Product = ({ item }) => {
             <p>Total Price:</p>
             <h5>${price ? (selected === 1 ? price : selected === 2 ? price500 : price750) : item.price}</h5>
           </div>
-          <button className="add__to--cart" onClick={addToCart}>
+          <button className="add__to--cart" onClick={handleAddToCart}>
             <img src={cart} alt="add item to cart" width="25" height="25" />
             <span>Add to cart</span>
           </button>
@@ -228,7 +244,7 @@ const CartButton = ({ items }) => {
           width={40}
           height={40}
         />
-        <span>{items}</span>
+        {items > 0 ? <span>{items}</span> : null}
       </div>
     </Link>
   )

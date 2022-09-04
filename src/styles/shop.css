@@ -55,7 +55,10 @@
   margin-block-end: 0;
 }
 .shop .cart__button:hover .cart__button--container {
-  background: #dac1af;
+  background: #d47530;
+}
+.shop .cart__button:hover .cart__button--container img {
+  filter: invert(1);
 }
 .shop .cart__button--container {
   position: relative;
@@ -320,6 +323,10 @@
   border-radius: 20px;
   background: lightgrey;
   border: none;
+}
+.more__beans--item a:hover {
+  background: #d47530;
+  color: #fff;
 }
 
 /*# sourceMappingURL=shop.css.map */
