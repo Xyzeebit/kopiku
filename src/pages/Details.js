@@ -17,6 +17,10 @@ export default function Details() {
     const [store, setStore] = useContext(StoreContext);
     const [item, setItem] = useState({});
   const [appCart, setCart] = useState([]);
+  
+  const addToCart = (c) => {
+    setStore({ ...store, cart: [...cart, c] });
+  }
 
     useEffect(() => {
         const product = store.products.beans.find( i => i._id === params.id);
@@ -34,7 +38,7 @@ export default function Details() {
     <div className="shop">
       <Header cartItems={appCart.length} />
       <div className="content">
-        <Product item={item} addToCart={setCart} />
+        <Product item={item} addToCart={addToCart} />
         <BeansList beans={store.products.beans} />
       </div>
     </div>
@@ -116,6 +120,8 @@ const Product = ({ item, addToCart }) => {
       cart.price = price750;
     }
     cart.quantity = quantity;
+    cart.title = item.title;
+    addToCart(cart);
   }
   
   useEffect(() => {

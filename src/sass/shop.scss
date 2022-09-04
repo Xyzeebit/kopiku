@@ -58,6 +58,11 @@
         &:hover .cart__button--container img {
             filter: invert(1);
         }
+        &:hover .cart__button--container span {
+            background: #fff;
+            color: #d47530;
+            border: 1px solid #d47530;
+        }
     }
     .cart__button--container {
         position: relative;

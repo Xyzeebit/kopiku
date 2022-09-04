@@ -60,6 +60,11 @@
 .shop .cart__button:hover .cart__button--container img {
   filter: invert(1);
 }
+.shop .cart__button:hover .cart__button--container span {
+  background: #fff;
+  color: #d47530;
+  border: 1px solid #d47530;
+}
 .shop .cart__button--container {
   position: relative;
   display: flex;
