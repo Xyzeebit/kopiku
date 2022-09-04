@@ -48,9 +48,18 @@
   margin-block-start: 0.5rem;
   margin-block-end: 0;
 }
+@media screen and (min-width: 320px) {
+  .shop .content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
 @media screen and (min-width: 810px) {
   .shop .content {
     padding: 3rem;
+    flex-direction: row;
   }
 }
 @media screen and (min-width: 961px) {
@@ -70,11 +79,13 @@
 @media screen and (min-width: 810px) {
   .content .detail {
     width: 18rem;
+    padding: 1.5rem 1.2rem 3rem 1.2rem;
   }
 }
 @media screen and (min-width: 961px) {
   .content .detail {
     width: 20rem;
+    padding: 1rem 1.2rem 2rem 1.2rem;
   }
 }
 .content .detail .detail__bar {
@@ -93,7 +104,7 @@
 }
 .content .detail .image__container {
   width: 100%;
-  height: 20rem;
+  height: 23rem;
   padding: 2rem;
   display: flex;
   justify-content: center;
@@ -215,6 +226,53 @@
 .content .detail .add__to--cart span {
   font-size: 0.8rem;
   margin-right: 1rem;
+}
+
+@media screen and (min-width: 320px) {
+  .more__beans {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 810px) {
+  .more__beans {
+    width: 20rem;
+  }
+}
+
+.more__beans--item {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-start h4 {
+  font-weight: 500;
+}
+.flex-start p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: gray;
+}
+
+.more__bean--img_container {
+  padding: 1rem;
+}
+
+.more__beans--item a {
+  padding: 8px 3rem 10px 3rem;
+  border-radius: 20px;
+  background: lightgrey;
+  border: none;
 }
 
 /*# sourceMappingURL=shop.css.map */

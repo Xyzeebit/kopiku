@@ -45,8 +45,15 @@
         }
     }
     .content {
+        @include responsive {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            flex-direction: column;
+        }
         @include responsive($tablet) {
             padding: 3rem;
+            flex-direction: row;
         }
         @include responsive($tablet-medium) {
             padding: 4rem;
@@ -59,12 +66,16 @@
         background: #fff;
         padding: 1rem;
         border-radius: 20px;
+        
     }
     @include responsive($tablet) {
         width: 18rem;
+        padding: 1.5rem 1.2rem 3rem 1.2rem;
+        
     }
     @include responsive($tablet-medium) {
         width: 20rem;
+        padding: 1rem 1.2rem 2rem 1.2rem;
     }
 
     .detail__bar {
@@ -84,7 +95,7 @@
     }
     .image__container {
         width: 100%;
-        height: 20rem;
+        height: 23rem;
         padding: 2rem;
         display: flex;
         justify-content: center;
@@ -210,4 +221,49 @@
         font-size: 0.8rem;
         margin-right: 1rem;
     }
+    
+}
+
+.more__beans {
+        @include responsive {
+            // padding: 1rem;
+            width: 100%;
+        }
+        @include responsive($tablet) {
+            width: 20rem;
+        }
+} 
+.more__beans--item {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    h4 {
+        font-weight: 500;
+    }
+    p {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: gray;
+    }
+}
+.more__bean--img_container {
+    padding: 1rem;
+}
+.more__beans--item a {
+    padding: 8px 3rem 10px 3rem;
+    border-radius: 20px;
+    background: lightgrey;
+    border: none;
 }

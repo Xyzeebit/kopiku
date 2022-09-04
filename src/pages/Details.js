@@ -25,14 +25,15 @@ export default function Details() {
         }
     }, [params.id, store.products]);
 
-    return (
-        <div className="shop">
-            <Header />
-            <div className="content">
-                <Product item={item} />
-            </div>
-        </div>
-    )
+  return (
+    <div className="shop">
+      <Header />
+      <div className="content">
+        <Product item={item} />
+        <BeansList beans={store.products.beans} />
+      </div>
+    </div>
+  );
 }
 
 const Header = () => {
@@ -59,64 +60,48 @@ const Header = () => {
 const Product = ({ item }) => {
     const [selected, setSelected] = useState(1);
     const [fav, setFav] = useState(false);
-    const [price, setPrice] = useState(parseFloat(item.price));
+    const [price, setPrice] = useState(0);
+    const [price750, setPrice750] = useState(0);
+    const [price500, setPrice500] = useState(0);
     const [quantity, setQuantity] = useState(1);
-    const [prePack, setPrePack] = useState(1);
-    const [packPrice, setPackPrice] = useState(1 * item.price);
 
     const increment = () => {
         if (quantity < 1001) {
-            const $price = packPrice * (quantity + 1);
-            setQuantity(quantity + 1);
-            if (selected) {
-                
-            }
-            setPrice(parseFloat($price).toFixed(2));
+          const $price = item.price * (quantity + 1);
+          const $price500 = (item.price * 2) * (quantity + 1);
+          const $price750 = (item.price * 2.5) * (quantity + 1)
+          setQuantity(quantity + 1);
+          setPrice(parseFloat($price).toFixed(2));
+          setPrice500(parseFloat($price500).toFixed(2));
+          setPrice750(parseFloat($price750).toFixed(2));
         }
     }
     const decrement = () => {
         if (quantity > 0) {
-            const $price = price - packPrice;
-            setQuantity(quantity - 1);
-            setPrice(parseFloat($price).toFixed(2));
+          const $price = price - item.price;
+          const $price500 = price500 - (item.price * 2);
+          const $price750 = price750 - (item.price * 2.5);
+          setQuantity(quantity - 1);
+          setPrice(parseFloat($price).toFixed(2));
+          setPrice500(parseFloat($price500).toFixed(2));
+          setPrice750(parseFloat($price750).toFixed(2));
         }
     }
     
     const handlePack = n => {
-        setPrePack(selected);
-        if (n === 1) {
-            setPackPrice(item.price * 1);
-        } else if (n === 2) {
-            setPackPrice(item.price * 2);
-        } else {
-            setPackPrice(item.price * 2.5);
-        }
-        setSelected(n);
+      if (n === 2) {
+        setPrice500(price * 2 * quantity);
+      } else if(n === 3) {
+        setPrice750(price * 2.5 * quantity);
+      }
+      setSelected(n);
+  }
+  
+  useEffect(() => {
+    if (item.price) {
+      setPrice(item.price)
     }
-
-    useEffect(() => {
-        if (price === 0) {
-            setPrice(parseFloat(item.price));
-        }
-    }, []);
-
-    useEffect(() => {
-        console.log(item)
-        console.log(selected, prePack, price)
-        if (selected === 2) {
-            let $price = price / prePack;
-            $price = price * selected;
-            setPrice(parseFloat($price));
-        } else if (selected === 3) {
-            let $price = price / prePack;
-            $price = price * 2.5;
-            setPrice(parseFloat($price));
-
-        } else {
-            const $price = price / prePack;
-            setPrice(parseFloat($price));
-        }
-    }, [selected]);
+  }, [item.price]);
 
     return (
       <div className="detail">
@@ -126,7 +111,7 @@ const Product = ({ item }) => {
               src={arrow}
               alt="go back to home page"
               width="25"
-              height="20"
+              height="25"
             />
           </Link>
           <p>Detail item</p>
@@ -188,7 +173,7 @@ const Product = ({ item }) => {
         <div className="add-to__cart--group">
           <div className="price__group">
             <p>Total Price:</p>
-            <h5>${price ? price : item.price}</h5>
+            <h5>${price ? (selected === 1 ? price : selected === 2 ? price500 : price750) : item.price}</h5>
           </div>
           <button className="add__to--cart">
             <img src={cart} alt="add item to cart" width="25" height="25" />
@@ -197,4 +182,33 @@ const Product = ({ item }) => {
         </div>
       </div>
     );
+}
+
+const BeansList = ({ beans }) => {
+  return (
+    <div className="more__beans">
+      {beans.map((bean) => {
+        return (
+          <div key={bean.id} className="more__beans--item">
+            <div className="flex-start">
+              <div className="more__bean--img_container">
+                <img
+                  src={bean.image}
+                  alt={bean.title}
+                  width={100}
+                  height={150}
+                />
+              </div>
+              <div>
+                <h4>{bean.title}</h4>
+                <p>{bean.description}</p>
+                <h6>{bean.price}</h6>
+              </div>
+            </div>
+            <Link to={`/beans/${beans._id}`}>View details</Link>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
