@@ -163,6 +163,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        @include responsive($tablet) {
+            height: 16rem;
+        }
         @include responsive($tablet-large) {
             height: 18rem;
             padding-left: 3rem;

@@ -37,7 +37,7 @@ export default function Details() {
 
     return (
       <div className="shop">
-        <Header cartItems={appCart.length} />
+        <Header cartItems={appCart.length} id={params.id} />
         <div className="content">
           <Product item={item} addToCart={addToCart} />
           <BeansList beans={store.products.beans} />
@@ -47,7 +47,7 @@ export default function Details() {
     );
 }
 
-const Header = ({ cartItems }) => {
+const Header = ({ cartItems, id }) => {
     return (
         <header>
             <div className="nav-brand">
@@ -64,7 +64,7 @@ const Header = ({ cartItems }) => {
                     <h4>Choose your beans</h4>
                 </div>
         </div>
-        <CartButton items={cartItems} />
+        <CartButton items={cartItems} id={id} />
         </header>
     );
 }
@@ -134,7 +134,7 @@ const Product = ({ item, addToCart }) => {
   }, [item.price]);
 
     return (
-      <div className="detail">
+      <div className="detail" id="details">
         <div className="detail__bar">
           <Link to="/">
             <img
@@ -235,7 +235,7 @@ const BeansList = ({ beans }) => {
                 <h5>${bean.price}</h5>
               </div>
             </div>
-            <Link to={`/beans/${bean._id}`}>View details</Link>
+            <a href={`/beans/${bean._id}/#details`}>View details</a>
           </div>
         );
       })}
@@ -243,9 +243,9 @@ const BeansList = ({ beans }) => {
   );
 }
 
-const CartButton = ({ items }) => {
+const CartButton = ({ items, id }) => {
   return (
-    <Link to="/cart" className="cart__button">
+    <a href={`/beans/${id}/#cart`} className="cart__button">
       <div className="cart__button--container">
         <img
           src={cart}
@@ -255,13 +255,13 @@ const CartButton = ({ items }) => {
         />
         {items > 0 ? <span>{items}</span> : null}
       </div>
-    </Link>
+    </a>
   )
 }
 
 
 const Cart = ({ items }) => {
-  const [quantity, setQuantity] = useState(0);
+  
   const [total, setTotal] = useState(0.00);
   
   const increment = () => {
@@ -281,7 +281,7 @@ const Cart = ({ items }) => {
     }
   }, [items]);
   return (
-    <div className="cart">
+    <div className="cart" id="cart">
       <p className="text-center bold-500">My Cart</p>
       <p className="text-center count">
         You have {items.length} items in your cart

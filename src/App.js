@@ -8,7 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/beans/:id" element={<Details />} />
-        <Route path="*" element={<main><h1>404</h1></main>} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
