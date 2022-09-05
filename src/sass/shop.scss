@@ -5,6 +5,12 @@
 
     header {
         background: #fff;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
         @include responsive {
             padding: 1rem;
             width: 100%;
@@ -127,6 +133,9 @@
         width: 20rem;
         padding: 1rem 1.2rem 2rem 1.2rem;
     }
+    @include responsive($tablet-large) {
+        width: 18rem;
+    }
 
     .detail__bar {
         display: flex;
@@ -150,6 +159,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        @include responsive($tablet-large) {
+            height: 18rem;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
     }
     .image__container img {
         width: 100%;

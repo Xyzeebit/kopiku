@@ -16,11 +16,11 @@ export default function Details() {
     const params = useParams();
     const [store, setStore] = useContext(StoreContext);
     const [item, setItem] = useState({});
-  const [appCart, setCart] = useState([]);
+    const [appCart, setCart] = useState([]);
   
-  const addToCart = (c) => {
-    setStore({ ...store, cart: [...cart, c] });
-  }
+    const addToCart = (c) => {
+      setStore({ ...store, cart: [...appCart, c] });
+    }
 
     useEffect(() => {
         const product = store.products.beans.find( i => i._id === params.id);
@@ -28,21 +28,22 @@ export default function Details() {
             setItem(product);
         }
     }, [params.id, store.products]);
-  useEffect(() => {
-    if (store.cart) {
-      setCart(store.cart);
-    }
-  }, [store.cart]);
+  
+    useEffect(() => {
+      if (store.cart) {
+        setCart(store.cart);
+      }
+    }, [store.cart]);
 
-  return (
-    <div className="shop">
-      <Header cartItems={appCart.length} />
-      <div className="content">
-        <Product item={item} addToCart={addToCart} />
-        <BeansList beans={store.products.beans} />
+    return (
+      <div className="shop">
+        <Header cartItems={appCart.length} />
+        <div className="content">
+          <Product item={item} addToCart={addToCart} />
+          <BeansList beans={store.products.beans} />
+        </div>
       </div>
-    </div>
-  );
+    );
 }
 
 const Header = ({ cartItems }) => {
@@ -188,13 +189,13 @@ const Product = ({ item, addToCart }) => {
             <img
               src={minus}
               alt="subtract from quantity"
-              width="25"
-              height="25"
+              width="30"
+              height="30"
             />
           </button>
           <p>{quantity}</p>
           <button className="add__button" onClick={increment}>
-            <img src={plus} alt="add more to quantity" width="25" height="25" />
+            <img src={plus} alt="add more to quantity" width="30" height="30" />
           </button>
         </div>
         <div className="add-to__cart--group">
@@ -253,5 +254,14 @@ const CartButton = ({ items }) => {
         {items > 0 ? <span>{items}</span> : null}
       </div>
     </Link>
+  )
+}
+
+
+const Cart = ({ items }) => {
+  return (
+    <div>
+      
+    </div>
   )
 }
