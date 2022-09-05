@@ -112,6 +112,7 @@
     padding: 3rem;
     align-items: flex-start;
     flex-direction: row;
+    column-gap: 2rem;
   }
 }
 @media screen and (min-width: 961px) {
@@ -127,6 +128,11 @@
     padding: 1rem;
     margin-bottom: 2rem;
     border-radius: 20px;
+  }
+}
+@media screen and (min-width: 641px) {
+  .content .detail {
+    width: 20rem;
   }
 }
 @media screen and (min-width: 810px) {
@@ -298,6 +304,11 @@
     width: 100%;
   }
 }
+@media screen and (min-width: 641px) {
+  .more__beans {
+    width: 20rem;
+  }
+}
 @media screen and (min-width: 810px) {
   .more__beans {
     width: 18rem;
@@ -397,6 +408,11 @@
     padding: 1.5rem;
     background: #fff;
     border-radius: 20px;
+  }
+}
+@media screen and (min-width: 641px) {
+  .cart {
+    width: 20rem;
   }
 }
 @media screen and (min-width: 810px) {

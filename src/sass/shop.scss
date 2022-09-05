@@ -109,6 +109,7 @@
             padding: 3rem;
             align-items: flex-start;
             flex-direction: row;
+            column-gap: 2rem;
         }
         @include responsive($tablet-medium) {
             padding: 4rem;
@@ -123,6 +124,9 @@
         margin-bottom: 2rem;
         border-radius: 20px;
         
+    }
+    @include responsive($mobile-large) {
+        width: 20rem;
     }
     @include responsive($tablet) {
         width: 18rem;
@@ -289,13 +293,15 @@
 }
 
 .more__beans {
-        @include responsive {
-            // padding: 1rem;
-            width: 100%;
-        }
-        @include responsive($tablet) {
-            width: 18rem;
-        }
+    @include responsive {
+        width: 100%;
+    }
+    @include responsive($mobile-large) {
+    width: 20rem;
+    }
+    @include responsive($tablet) {
+        width: 18rem;
+    }
 } 
 .more__beans--item {
     background: #fff;
@@ -382,6 +388,9 @@
         padding: 1.5rem;
         background: #fff;
         border-radius: 20px;
+    }
+    @include responsive($mobile-large) {
+        width: 20rem;
     }
     @include responsive($tablet) {
         width: 16rem;
