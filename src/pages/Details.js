@@ -262,6 +262,7 @@ const CartButton = ({ items }) => {
 
 const Cart = ({ items }) => {
   const [quantity, setQuantity] = useState(0);
+  const [total, setTotal] = useState(0.00);
   
   const increment = () => {
 
@@ -269,16 +270,37 @@ const Cart = ({ items }) => {
   const decrement = () => {
 
   }
+
+  useEffect(() => {
+    function sum(a, b) {
+      return parseFloat(a) + parseFloat(b.price);
+    }
+    if (items.length) {
+      const $total = items.reduce(sum, 0);
+      setTotal($total);
+    }
+  }, [items]);
   return (
     <div className="cart">
       <p className="text-center bold-500">My Cart</p>
-      <p className="text-center count">You have {items.length} items in your cart</p>
+      <p className="text-center count">
+        You have {items.length} items in your cart
+      </p>
       <div className="cart__list">
         <div>
-          {items.map(item => {
+          {items.map((item) => {
             return (
-              <div className="cart__item flex flex-just-align-start">
-                <img src={item.image} alt={item.title} width={50} height={80} className="mr-1" />
+              <div
+                key={item._id + item.title}
+                className="cart__item flex flex-just-align-start"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  width={50}
+                  height={80}
+                  className="mr-1"
+                />
                 <div className="title-weight-quantity">
                   <p className="title bold-500">{item.title}</p>
                   <small className="text-gray">Beans - {item.weight}g</small>
@@ -309,7 +331,28 @@ const Cart = ({ items }) => {
             );
           })}
         </div>
+
+        {items.length ? (
+          <>
+            <div className="flex flex-between">
+              <p className="text-gray">Items total</p>
+              <p>${total}</p>
+            </div>
+            <div className="flex flex-between">
+              <p className="text-gray">Discounts</p>
+              <p>- ${"5.00"}</p>
+            </div>
+            <div className="flex flex-between">
+              <p className="text-gray">Total</p>
+              <p>${total - 5.0}</p>
+            </div>
+          </>
+        ) : null}
+
+        <div className="flex flex-center">
+          <button className="checkout">Checkout</button>
+        </div>
       </div>
     </div>
-  )
+  );
 }
