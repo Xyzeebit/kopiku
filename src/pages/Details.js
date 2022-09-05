@@ -41,6 +41,7 @@ export default function Details() {
         <div className="content">
           <Product item={item} addToCart={addToCart} />
           <BeansList beans={store.products.beans} />
+          <Cart items={appCart} />
         </div>
       </div>
     );
@@ -122,6 +123,7 @@ const Product = ({ item, addToCart }) => {
     }
     cart.quantity = quantity;
     cart.title = item.title;
+    cart.image = item.image;
     addToCart(cart);
   }
   
@@ -259,9 +261,55 @@ const CartButton = ({ items }) => {
 
 
 const Cart = ({ items }) => {
+  const [quantity, setQuantity] = useState(0);
+  
+  const increment = () => {
+
+  }
+  const decrement = () => {
+
+  }
   return (
-    <div>
-      
+    <div className="cart">
+      <p className="text-center bold-500">My Cart</p>
+      <p className="text-center count">You have {items.length} items in your cart</p>
+      <div className="cart__list">
+        <div>
+          {items.map(item => {
+            return (
+              <div className="cart__item flex flex-just-align-start">
+                <img src={item.image} alt={item.title} width={50} height={80} className="mr-1" />
+                <div className="title-weight-quantity">
+                  <p className="title bold-500">{item.title}</p>
+                  <small className="text-gray">Beans - {item.weight}g</small>
+                  <div className="quantity flex flex-between">
+                    <h5>${item.price}</h5>
+                    <div className="sub__add--group flex flex-between">
+                      <button className="sub__button" onClick={decrement}>
+                        <img
+                          src={minus}
+                          alt="subtract from quantity"
+                          width="20"
+                          height="20"
+                        />
+                      </button>
+                      <p>{item.quantity}</p>
+                      <button className="add__button" onClick={increment}>
+                        <img
+                          src={plus}
+                          alt="add more to quantity"
+                          width="20"
+                          height="20"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   )
 }
