@@ -25,7 +25,7 @@ export const appStore = {
       _id: "i83787dhla",
       icon: icon_bag,
       title: "Select Product",
-      description: `Lorem ipsum dolor sit amet Maecenas porttitor congue massa. Fusce posuere.`,
+      description: `Browse through our vast collection of products and select the item that catches your interest.`,
     },
     {
       _id: "i83f787dhla",
