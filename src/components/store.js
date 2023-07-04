@@ -31,13 +31,13 @@ export const appStore = {
       _id: "i83f787dhla",
       icon: icon_money,
       title: "Make Payment",
-      description: `Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus.`,
+      description: `Vivamus a tellus. Pellentesq.`,
     },
     {
       _id: "i83787d63hla",
       icon: icon_satellite,
       title: "Receive Product",
-      description: `Maecenas porttitor congue massa. Ipsum dolor sit amet, consectetuer adipiscing elit.`,
+      description: `After selecting the product you wish to purchase, proceed to the secure checkout process. We offer a range of convenient and reliable payment options to ensure a seamless transaction.`,
     },
   ],
   products: {
